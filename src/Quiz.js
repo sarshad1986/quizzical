@@ -26,17 +26,17 @@ export default function Quiz() {
 
   const questionsElements = quizData.results.map((question, index) => {
     console.log(question)
+    const handleSelectAnswer = (answer) => {
+      const newAnswers = [...selectedAnswers]
+      newAnswers[index] = answer
+      setSelectedAnswers(newAnswers)
+    }
     return (
-      <div>
+      <div key={index}>
         <Question
           {...question}
-          key={index}
           selectedAnswer={selectedAnswers[index]}
-          onSelectAnswer={(answer) => {
-            const newAnswers = [...selectedAnswers]
-            newAnswers[index] = answer
-            setSelectedAnswers(newAnswers)
-        }}
+          onSelectAnswer={handleSelectAnswer}
           showCorrectAnswer={showCorrectAnswers}
         />
       </div>

@@ -10,12 +10,11 @@ export default function Question({
   onSelectAnswer,
   showCorrectAnswer
 }) {
-
-  const [possibleAnswers, setPossibleAnswers] = React.useState([correct_answer, ...incorrect_answers])
+  const [possibleAnswers, setPossibleAnswers] = React.useState([])
 
   React.useEffect(() => {
-    setPossibleAnswers(shuffle(possibleAnswers))
-  }, [])
+    setPossibleAnswers(shuffle([correct_answer, ...incorrect_answers]))
+  }, [correct_answer, incorrect_answers])
 
   const answerElements = possibleAnswers.map((answer, idx) => {
     let styles
