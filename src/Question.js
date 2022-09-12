@@ -1,5 +1,6 @@
 import React from "react"
 import shuffle from "lodash/shuffle"
+import {decode} from 'html-entities';
 
 export default function Question({
   correct_answer,
@@ -52,7 +53,7 @@ export default function Question({
     return (
       <div key={idx}>
         <h4 className="answer" style={styles} onClick={() => onSelectAnswer(answer)}>
-          {answer}
+          {decode(answer)}
         </h4>
       </div>
     )
@@ -60,7 +61,7 @@ export default function Question({
 
   return (
     <div>
-      <h3>{question}</h3>
+      <h3>{decode(question)}</h3>
       <h4 className="answer-container">{answerElements}</h4>
       <hr />
     </div>
