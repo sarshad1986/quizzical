@@ -11,8 +11,10 @@ export default function App() {
   }
 
   return (
-    quiz ?
+    <div className="container">
+      {quiz ?
       <Quiz /> :
-      <Start onClick={startQuiz} />
+      <Start onClick={startQuiz} />}
+    </div>
   )
 }

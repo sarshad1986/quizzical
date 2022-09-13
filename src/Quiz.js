@@ -23,7 +23,11 @@ export default function Quiz() {
   }, [quizData])
 
   if (!quizData) {
-    return 'Loading...'
+    return (
+      <div className="loading-container">
+        <h3>Loading...</h3>
+      </div>
+    )
   }
 
   const questionsElements = quizData.results.map((question, index) => {
@@ -69,7 +73,11 @@ export default function Quiz() {
 
   return (
     <div>
-      {showCorrectAnswers && <Confetti width={width} height={height}/>}
+      {showCorrectAnswers && <div style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+      }}><Confetti width={width} height={height}/></div>}
       {questionsElements}
       <div className="check-box">
         {showCorrectAnswers ? (
