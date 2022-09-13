@@ -1,4 +1,5 @@
 import React from "react"
+import useWindowSize from 'react-use/lib/useWindowSize'
 import Confetti from 'react-confetti'
 import Question from "./Question"
 
@@ -10,6 +11,7 @@ export default function Quiz() {
 
   console.log('quiz_data', quizData)
   console.log('selectedAnswers', selectedAnswers)
+  const { width, height } = useWindowSize()
 
   React.useEffect(() => {
     if (!quizData) {
@@ -67,7 +69,7 @@ export default function Quiz() {
 
   return (
     <div>
-      {showCorrectAnswers && <Confetti />}
+      {showCorrectAnswers && <Confetti width={width} height={height}/>}
       {questionsElements}
       <div className="check-box">
         {showCorrectAnswers ? (
