@@ -1,5 +1,5 @@
 import React from "react"
-
+import Confetti from 'react-confetti'
 import Question from "./Question"
 
 export default function Quiz() {
@@ -67,6 +67,7 @@ export default function Quiz() {
 
   return (
     <div>
+      {showCorrectAnswers && <Confetti />}
       {questionsElements}
       <div className="check-box">
         {showCorrectAnswers ? (
